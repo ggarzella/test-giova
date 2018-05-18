@@ -1,0 +1,17 @@
+{
+  "name": "SOS-Tariffe",
+  "description": "Seconda prova",
+  "autoload": {
+    "psr-0": {
+      "repository": "src/library/",
+      "controller": "src/library/",
+      "factory": "src/library/",
+      "service": "src/library/",
+      "entity": "src/library/",
+      "domain": "src/library/",
+      "utils": "src/library/",
+      "exception": "src/library/",
+      "loader": "src/library"
+    }
+  }
+}
