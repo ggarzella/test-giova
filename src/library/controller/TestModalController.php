@@ -2,10 +2,10 @@
 
 namespace controller;
 
-class HomeController
+class TestModalController
 {
     public function invoke()
     {
-        include("src/view/home.php");
+        include("src/view/test-modal.php");
     }
 }
