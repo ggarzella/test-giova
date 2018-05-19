@@ -1,0 +1,11 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule    ^store/([0-9]+)/?$    index.php?page=store&id=$1    [NC,L]    # Process store requests
+RewriteRule    ^list/?$    index.php?page=list    [NC,L]    # Process list item requests
+</IfModule>
+
+# END WordPress
+
+# BEGIN 301 Redirects
+# Redirect 301 /category/civile/ /civile/
+# END 301 Redirects
