@@ -17,10 +17,10 @@
                         <p class="storeName"><?=$store->getName();?></p>
                     </div>
                     <div class="col-md-4">
-                        <p class="storeDistance"><?=$store->getDistance();?></p>
+                        <p class="storeDistance">Distanza: <?=$store->getDistance();?> km</p>
                     </div>
                     <div class="col-md-4">
-                        <input type="button" value="Acquista" onclick="window.location.href='/store/<?=$store->getId();?>'"/>
+                        <input type="button" value="Acquista"/>
                     </div>
                 </div>
             </div>

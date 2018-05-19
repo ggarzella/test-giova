@@ -26,7 +26,8 @@
                 <div class="col-md-4 col-sm-5">
                     <div class="buttonContainer">
                         <div>
-                            <input type="button" value="Acquista" onclick="window.location.href='/store/<?=$item->getId();?>'"/>
+                            <input name="button" type="button" value="Acquista"/>
+                            <input type="hidden" name="itemId" value="<?=$item->getId();?>"/>
                         </div>
                     </div>
                 </div>
