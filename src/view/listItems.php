@@ -18,7 +18,6 @@
             <br/>
             <span><?=$item->getDescription();?></span>
         </li>
-        <br/></br>
 <?php
 
     endforeach;

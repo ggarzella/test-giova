@@ -2,10 +2,10 @@
 
 namespace controller;
 
-class ItemsController
+class ErrorController
 {
     public function invoke()
     {
-        var_dump("Invoke");
+        include("src/view/error.php");
     }
 }
