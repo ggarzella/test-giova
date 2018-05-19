@@ -10,9 +10,6 @@
       <PhpUnitSettings />
     </phpunit_settings>
   </component>
-  <component name="ProjectDictionaryState">
-    <dictionary name="ggarzella" />
-  </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
       <profile-state>
@@ -38,8 +35,5 @@
     <OptionsSetting value="true" id="Edit" />
     <ConfirmationsSetting value="0" id="Add" />
     <ConfirmationsSetting value="0" id="Remove" />
-  </component>
-  <component name="SvnConfiguration">
-    <configuration />
   </component>
 </project>

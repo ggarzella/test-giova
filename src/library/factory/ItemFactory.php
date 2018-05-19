@@ -56,7 +56,6 @@ class ItemFactory
     private function retrieveData()
     {
         $file = "data/items.json";
-        $loader = new FileLoader();
-        return $loader->loadContent($file);
+        return FileLoader::loadContent($file);
     }
 }

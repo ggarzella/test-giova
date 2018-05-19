@@ -4,7 +4,7 @@ namespace utils\fileLoader;
 
 class JsonFileLoader implements StrategyFileLoader
 {
-    public function loadContent($filePath)
+    public static function loadContent($filePath)
     {
         try
         {

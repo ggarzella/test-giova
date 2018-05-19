@@ -56,7 +56,6 @@ class StoreFactory
     private function retrieveData()
     {
         $file = "data/stores.json";
-        $loader = new FileLoader();
-        return $loader->loadContent($file);
+        return FileLoader::loadContent($file);
     }
 }

@@ -6,7 +6,7 @@ use exception\FileTypeException;
 
 class FileLoader
 {
-    public function loadContent($filePath)
+    public static function loadContent($filePath)
     {
         $file_parts = pathinfo($filePath);
 
@@ -20,7 +20,6 @@ class FileLoader
         }
 
         $contextLoader = new StrategyContextLoader();
-        $contextLoader->setFile($filePath);
-        return $contextLoader->loadFileContent($loader);
+        return $contextLoader::loadFileContent($loader, $filePath);
     }
 }

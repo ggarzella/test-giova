@@ -1,11 +1,13 @@
 <script type="text/javascript" src="src/js/items.js"></script>
 
-<h1>Lista prodotti</h1>
+<h1>GestioneMagazzini</h1>
+<h2>Gestione ristoccaggio magazzino</h2>
 
 <div>
-    <input type="text" id="itemsSearch"/>
+    <input type="text" name="itemsSearch" placeholder="Di cosa hai bisogno oggi?"/>
 </div>
-<br/>
+
+<h1>Risultati</h1>
 
 <ul id="items">
 
@@ -17,6 +19,8 @@
             <span name="itemName"><?=$item->getName();?></span>
             <br/>
             <span><?=$item->getDescription();?></span>
+            <br/>
+            <input type="button" value="Invia"/>
         </li>
 <?php
 
