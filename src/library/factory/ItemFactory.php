@@ -28,7 +28,7 @@ class ItemFactory
     {
         try
         {
-            $data = $this->retrieveItemsData();
+            $data = $this->retrieveData();
             $service = new ItemService();
             $service->setDataSource($data);
             return $service;
@@ -53,7 +53,7 @@ class ItemFactory
         }
     }
 
-    private function retrieveItemsData()
+    private function retrieveData()
     {
         $file = "data/items.json";
         $loader = new FileLoader();

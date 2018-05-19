@@ -1,18 +1,20 @@
-<h1>Risultati</h1>
+<h1>Lista Magazzini</h1>
 
 <?php
-    foreach ($store as $store):
+foreach ($stores as $store):
 
-?>
+    //var_dump($store->getId());
+
+    ?>
 
     <div>
-        <span><?=$item->getName();?></span>
+        <span><?=$store->getName();?></span>
         <br/>
-        <span><?=$item->getDescription();?></span>
+        <span><?=$store->getDistance();?></span>
     </div>
     <br/><br/>
-<?php
+    <?php
 
-    endforeach;
+endforeach;
 
 ?>

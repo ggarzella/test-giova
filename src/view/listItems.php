@@ -1,4 +1,4 @@
-<h1>Risultati</h1>
+<h1>Lista prodotti</h1>
 
 <?php
     foreach ($items as $item):

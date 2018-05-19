@@ -7,64 +7,53 @@ class Stock
     /*
      * @var int
      */
-    private $id;
+    private $idItem;
 
     /*
-     * @var Store
+     * @var int
      */
-    private $store;
+    private $idStore;
 
     /*
-     * @var Item
+     * @var int
      */
-    private $item;
+    private $quantity;
 
-    /**
-     * @return int
+    /*
+     * @var int
      */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * @param int $id
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-    }
+    private $minQuantity;
 
     /**
      * @return Item
      */
-    public function getItem()
+    public function getIdItem()
     {
-        return $this->item;
+        return $this->idItem;
     }
 
     /**
      * @param Item
      */
-    public function setItems($item)
+    public function setIdItem($id)
     {
-        $this->item = $item;
+        $this->idItem = $id;
     }
 
     /**
-     * @return Store
+     * @return int
      */
-    public function getStore()
+    public function getIdStore()
     {
-        return $this->store;
+        return $this->idStore;
     }
 
     /**
-     * @param Store
+     * @param int $idStore
      */
-    public function setStore($store)
+    public function setIdStore($idStore)
     {
-        $this->store = $store;
+        $this->idStore = $idStore;
     }
 
     /**

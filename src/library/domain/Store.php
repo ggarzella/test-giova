@@ -10,6 +10,11 @@ class Store
     private $id;
 
     /*
+     * @var array
+     */
+    private $stocks = array();
+
+    /*
      * @var string
      */
     private $name;
@@ -33,6 +38,22 @@ class Store
     public function setId($id)
     {
         $this->id = $id;
+    }
+
+    /**
+     * @return array
+     */
+    public function getStocks()
+    {
+        return $this->stocks;
+    }
+
+    /**
+     * @param Stock
+     */
+    public function setStocks($stock)
+    {
+        array_push($this->stocks, $stock);
     }
 
     /**
