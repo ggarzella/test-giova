@@ -10,7 +10,7 @@ window.addEventListener("DOMContentLoaded", function()
 
         for (i = 0; i < li.length; i++)
         {
-            itemName = li[i].getElementsByTagName("span")[0];
+            itemName = li[i].getElementsByClassName("itemName")[0];
 
             if (itemName.innerHTML.toUpperCase().indexOf(filter) > -1)
                 li[i].style.display = "";

@@ -1,0 +1,51 @@
+body {
+    font-size: 17px;
+    font-family: Arial, sans-serif;
+}
+
+#main-container {
+    margin: 15px auto 0;
+    width: 70%;
+}
+
+h1 {
+    color: #5EACF5;
+}
+
+#searchContainer  {
+    margin: 15px 0 30px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    margin: 20px 0;
+    border: solid 1px rgba(108, 117, 125, 0.3);
+}
+
+div.itemContent p {
+    margin: 0;
+    padding: 0;
+}
+
+div.itemContent, div.storeContent {
+    padding: 15px;
+}
+
+p.itemName {
+    font-weight: bold;
+    font-size: 19px;
+}
+
+input[type=button] {
+    background-color: #73BE1E;
+    border: inherit;
+    color: #000;
+    text-transform: uppercase;
+    padding: 20px;
+    width: 85%;
+    border-radius: 10px;
+}
