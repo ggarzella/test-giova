@@ -14,9 +14,6 @@ function call($controller)
         case 'list':
             $controller = new ItemController();
             break;
-        case 'transfer':
-            $controller = new TransferController();
-            break;
         case 'store':
             if (isset($_GET['id']))
                 $controller = new StoreController();
@@ -25,9 +22,6 @@ function call($controller)
             break;
         case 'error':
             $controller = new ErrorController();
-            break;
-        case 'test-modal':
-            $controller = new TestModalController();
             break;
         default:
             $controller = new HomeController();
@@ -39,7 +33,7 @@ function call($controller)
 if (!isset($controller))
     $controller = 'home';
 
-$controllers = array('home', 'list', 'store', 'test-modal', 'transfer');
+$controllers = array('home', 'list', 'store');
 
 if (in_array($controller, $controllers))
     call($controller);

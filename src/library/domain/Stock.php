@@ -10,9 +10,9 @@ class Stock
     private $idItem;
 
     /*
-     * @var int
+     * @var string
      */
-    //private $idStore;
+    private $nameItem;
 
     /*
      * @var int
@@ -25,7 +25,7 @@ class Stock
     private $minQuantity;
 
     /**
-     * @return Item
+     * @return int
      */
     public function getIdItem()
     {
@@ -33,7 +33,7 @@ class Stock
     }
 
     /**
-     * @param Item
+     * @param int $id
      */
     public function setIdItem($id)
     {
@@ -41,20 +41,20 @@ class Stock
     }
 
     /**
-     * @return int
+     * @return string
      */
-    /*public function getIdStore()
+    public function getNameItem()
     {
-        return $this->idStore;
-    }*/
+        return $this->nameItem;
+    }
 
     /**
-     * @param int $idStore
+     * @param string $nameItem
      */
-    /*public function setIdStore($idStore)
+    public function setNameItem($nameItem)
     {
-        $this->idStore = $idStore;
-    }*/
+        $this->nameItem = $nameItem;
+    }
 
     /**
      * @return int

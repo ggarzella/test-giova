@@ -19,9 +19,11 @@ window.addEventListener("DOMContentLoaded", function()
             xmlhttp.send(params);
             xmlhttp.onreadystatechange = function () {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == "200") {
-                    console.log(xmlhttp.responseText);
-                    console.log(xmlhttp.status);
-                    //callback(req.responseText);
+                    var result = JSON.parse(xmlhttp.responseText);
+                    document.getElementById("itemName").innerHTML = result['item'];
+                    document.getElementById("storeName").innerHTML = result['store'];
+                    document.getElementById("quantity").innerHTML = result['quantity'];
+                    $('#myModal').modal('show');
                 }
             };
         });

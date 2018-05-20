@@ -3,7 +3,6 @@
 namespace service;
 
 use domain\Item;
-use repository\ItemRepository;
 
 class ItemService
 {
@@ -13,12 +12,15 @@ class ItemService
     private $data;
 
     /*
-     * @var ItemRepository
+     * @return array
      */
-    private $itemRepository;
+    public function getDataSource()
+    {
+        return $this->data;
+    }
 
     /*
-     * @var array $data
+     * @param array $data
      */
     public function setDataSource($data)
     {
@@ -26,29 +28,8 @@ class ItemService
     }
 
     /*
-     * @return array $data
+     * @return array
      */
-    public function getDataSource()
-    {
-        return $this->data;
-    }
-
-    /**
-     * @return ItemRepository
-     */
-    public function getItemRepository()
-    {
-        return $this->itemRepository;
-    }
-
-    /*
-     * @var ItemRepository
-     */
-    public function setItemRepository(ItemRepository $itemRepository)
-    {
-        $this->itemRepository = $itemRepository;
-    }
-
     public function getItemList()
     {
         $items = array();
@@ -59,6 +40,25 @@ class ItemService
         return $items;
     }
 
+    /*
+     * @param int $id
+     * @return array
+     */
+    public function getItemById($id)
+    {
+        $item = array();
+
+        foreach ($this->data as $element)
+            if ($element['id'] == $id)
+                return $this->toItem($element);
+
+        return $item;
+    }
+
+    /*
+     * @param array $data
+     * @return Item
+     */
     private function toItem($data)
     {
         $item = new Item();

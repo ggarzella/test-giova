@@ -29,9 +29,11 @@ class StoreFactory
         try
         {
             $data = $this->retrieveData();
-            $service = new StoreService();
-            $service->setDataSource($data);
-            return $service;
+            $storeService = new StoreService();
+            $storeService->setDataSource($data);
+            $itemService = ItemFactory::getInstance()->getItemService();
+            $storeService->setItemService($itemService);
+            return $storeService;
         }
         catch(FileTypeException $e)
         {

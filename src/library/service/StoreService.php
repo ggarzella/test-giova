@@ -13,7 +13,12 @@ class StoreService
     private $data;
 
     /*
-     * @var array $data
+     * @var ItemService
+     */
+    private $itemService;
+
+    /*
+     * @param array $data
      */
     public function setDataSource($data)
     {
@@ -21,11 +26,27 @@ class StoreService
     }
 
     /*
-     * @return array $data
+     * @return array
      */
     public function getDataSource()
     {
         return $this->data;
+    }
+
+    /*
+     * @param ItemService $itemService
+     */
+    public function setItemService(ItemService $itemService)
+    {
+        $this->itemService = $itemService;
+    }
+
+    /*
+     * @return ItemService
+     */
+    public function getItemService()
+    {
+        return $this->itemService;
     }
 
     public function getStoreByItem($id)
@@ -54,22 +75,6 @@ class StoreService
         return $stores;
     }
 
-    public function getItemFromStore($idStore, $idItem)
-    {
-        $stores = $this->getStoreList();
-
-        foreach ($stores as $key=>$store)
-            if ($store->getId() == $idStore) {
-                foreach ($store->getStocks() as $key=>$stock)
-                    if ($stock->getIdItem() != $idItem)
-                        $store->unsetStocks($key);
-
-                return $store;
-            }
-
-        return array();
-    }
-
     public function getItemFromStoreList($idItem)
     {
         $stores = $this->getStoreList();
@@ -86,6 +91,22 @@ class StoreService
             }
 
         return $stores;
+    }
+
+    public function getItemFromStore($idStore, $idItem)
+    {
+        $stores = $this->getStoreList();
+
+        foreach ($stores as $key=>$store)
+            if ($store->getId() == $idStore) {
+                foreach ($store->getStocks() as $key=>$stock)
+                    if ($stock->getIdItem() != $idItem)
+                        $store->unsetStocks($key);
+
+                return $store;
+            }
+
+        return array();
     }
 
     private function toStore($data)
@@ -109,6 +130,9 @@ class StoreService
     {
         $stock = new Stock();
         $stock->setIdItem($data["id"]);
+        $itemService = $this->getItemService();
+        $item = $itemService->getItemById($data["id"]);
+        $stock->setNameItem($item->getName());
         $stock->setQuantity($data["qty"]);
         $stock->setMinQuantity($data["minQty"]);
         return $stock;
