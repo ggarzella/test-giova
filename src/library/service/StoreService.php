@@ -119,7 +119,6 @@ class StoreService
         foreach ($data["items"] as $item)
         {
             $stock = $this->toStock($item);
-            //$stock->setIdStore($data["id"]);
             $store->setStocks($stock);
         }
 
