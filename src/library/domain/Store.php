@@ -56,6 +56,9 @@ class Store
         array_push($this->stocks, $stock);
     }
 
+    /*
+     * @param int $stock
+     */
     public function unsetStocks($stock)
     {
         unset($this->stocks[$stock]);

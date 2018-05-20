@@ -23,6 +23,8 @@
             if (($quantity - $minQuantity) > 0)
                 continue;
 
+            $quantity = $minQuantity - $quantity;
+
             $found = true;
 
             ?>
@@ -40,7 +42,6 @@
                             <input type="hidden" name="idStore" value="<?= $store->getId(); ?>"/>
                             <input type="hidden" name="idItem" value="<?= $idItem; ?>"/>
                             <input type="hidden" name="quantity" value="<?= $quantity; ?>"/>
-                            <input type="hidden" name="minQuantity" value="<?= $minQuantity; ?>"/>
                         </div>
                     </div>
                 </div>
@@ -57,7 +58,7 @@
 
         <li>
             <div class="storeContent align-items-center">
-                <?=utf8_encode("Questo prodotto supera la quantità minima richiesta in tutti i magazzini");?>
+                <?=utf8_encode("Tutti i magazzini sono già sufficientemente forniti di questo prodotto");?>
             </div>
         </li>
 
