@@ -41,7 +41,7 @@ window.addEventListener("DOMContentLoaded", function()
         }
     }
 
-    var buttonBuy = document.getElementsByName("button");
+    var buttonBuy = document.getElementsByName("cta");
     buttonBuy.forEach(function(element) {
         element.addEventListener("click", function(element) {
             var button = element.target;
@@ -49,7 +49,5 @@ window.addEventListener("DOMContentLoaded", function()
             location.href = "/store/" + idItem;
         });
     });
-
-    console.log(buttonBuy);
 
 }, false);

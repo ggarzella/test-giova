@@ -2,6 +2,7 @@
 RewriteEngine On
 RewriteRule    ^store/([0-9]+)/?$    index.php?page=store&id=$1    [NC,L]    # Process store requests
 RewriteRule    ^list/?$    index.php?page=list    [NC,L]    # Process list item requests
+RewriteRule    ^transfer/?$    index.php?page=transfer    [NC,L]    # Process list item requests
 RewriteRule    ^test-modal/?$    index.php?page=test-modal    [NC,L]    # Process test modal page
 RewriteRule    ^([A-Za-z0-9-]+)/?$    index.php?page=error    [NC,L]    # Show error page
 </IfModule>

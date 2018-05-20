@@ -3,6 +3,7 @@
 namespace service;
 
 use domain\Item;
+use repository\ItemRepository;
 
 class ItemService
 {
@@ -10,6 +11,11 @@ class ItemService
      * @var array
      */
     private $data;
+
+    /*
+     * @var ItemRepository
+     */
+    private $itemRepository;
 
     /*
      * @var array $data
@@ -25,6 +31,22 @@ class ItemService
     public function getDataSource()
     {
         return $this->data;
+    }
+
+    /**
+     * @return ItemRepository
+     */
+    public function getItemRepository()
+    {
+        return $this->itemRepository;
+    }
+
+    /*
+     * @var ItemRepository
+     */
+    public function setItemRepository(ItemRepository $itemRepository)
+    {
+        $this->itemRepository = $itemRepository;
     }
 
     public function getItemList()

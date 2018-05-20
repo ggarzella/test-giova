@@ -5,6 +5,7 @@ use controller\ItemController;
 use controller\StoreController;
 use controller\ErrorController;
 use controller\TestModalController;
+use controller\TransferController;
 
 function call($controller)
 {
@@ -12,6 +13,9 @@ function call($controller)
     {
         case 'list':
             $controller = new ItemController();
+            break;
+        case 'transfer':
+            $controller = new TransferController();
             break;
         case 'store':
             if (isset($_GET['id']))
@@ -35,7 +39,7 @@ function call($controller)
 if (!isset($controller))
     $controller = 'home';
 
-$controllers = array('home', 'list', 'store', 'test-modal');
+$controllers = array('home', 'list', 'store', 'test-modal', 'transfer');
 
 if (in_array($controller, $controllers))
     call($controller);

@@ -1,4 +1,4 @@
-<script type="text/javascript" src="src/js/items.js"></script>
+<script type="text/javascript" src="../src/js/items.js"></script>
 
 <h1>GestioneMagazzini</h1>
 <h2>Gestione ristoccaggio magazzino</h2>
@@ -26,7 +26,7 @@
                 <div class="col-md-4 col-sm-5">
                     <div class="buttonContainer">
                         <div>
-                            <input name="button" type="button" value="Acquista"/>
+                            <input name="cta" type="button" value="CTA"/>
                             <input type="hidden" name="itemId" value="<?=$item->getId();?>"/>
                         </div>
                     </div>

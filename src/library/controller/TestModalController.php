@@ -6,6 +6,6 @@ class TestModalController
 {
     public function invoke()
     {
-        include("src/view/test-modal.php");
+        include("src/view/testModal.php");
     }
 }

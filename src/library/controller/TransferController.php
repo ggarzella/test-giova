@@ -4,17 +4,19 @@ namespace controller;
 
 use factory\StoreFactory;
 
-class StoreController
+class TransferController
 {
     public function invoke()
     {
+        $idItem = $_REQUEST['idItem'];
+        $idStore = $_REQUEST['idStore'];
+        $quantity = $_REQUEST['quantity'];
+
         try {
-            $idItem = $_REQUEST['id'];
-
             if ($storeService = StoreFactory::getInstance()->getStoreService())
-                $stores = $storeService->getStoreList();
+                $store = $storeService->getStoreByItem($idItem, $idStore);
 
-            include("src/view/storeItems.php");
+            include("src/view/transfer.php");
         } catch (\Exception $e) {
             $msg = $e->getMessage();
             var_dump($msg);

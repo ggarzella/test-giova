@@ -28,7 +28,7 @@ class StoreService
         return $this->data;
     }
 
-    public function getStoreByProduct($id)
+    public function getStoreByItem($id)
     {
         $stores = array();
 
@@ -54,6 +54,21 @@ class StoreService
         return $stores;
     }
 
+    public function getItemFromStore($idItem, $idStore)
+    {
+        $stores = $this->getStoreList();
+
+        foreach ($stores as $key=>$store)
+            if ($store->getId() == $idStore)
+                foreach ($store->getStocks() as $stock)
+                    if ($stock->getIdItem() == $idItem) {
+                        $store->setStocks(array($stock));
+                        return $store;
+                    }
+
+        return false;
+    }
+
     private function toStore($data)
     {
         $store = new Store();
@@ -75,12 +90,12 @@ class StoreService
     {
         $stock = new Stock();
         $stock->setIdItem($data["id"]);
-        $stock->setQuantity($data["minQty"]);
-        $stock->setMinQuantity($data["qty"]);
+        $stock->setQuantity($data["qty"]);
+        $stock->setMinQuantity($data["minQty"]);
         return $stock;
     }
 
-    private function filterStoreByIdItem($id)
+    /*private function filterStoreByIdItem($id)
     {
         $filteredStore = array();
 
@@ -97,4 +112,22 @@ class StoreService
 
         return $filteredStore;
     }
+
+    private function filterByIdItemAndStore($idItem, $idStore)
+    {
+        $filteredStore = array();
+
+        foreach ($this->data as $store)
+        {
+            foreach ($store["items"] as $stock)
+                if ($stock["id"] == $id)
+                {
+                    $store["items"] = array($stock);
+                    array_push($filteredStore, $store);
+                    continue;
+                }
+        }
+
+        return $filteredStore;
+    }*/
 }
