@@ -28,6 +28,13 @@ class ComposerStaticInitafaf372ac133e1a59308b8737af5eec3
                 0 => __DIR__ . '/../..' . '/src/library',
             ),
         ),
+        'm' => 
+        array (
+            'model' => 
+            array (
+                0 => __DIR__ . '/../..' . '/src/library',
+            ),
+        ),
         'l' => 
         array (
             'loader' => 
@@ -49,13 +56,6 @@ class ComposerStaticInitafaf372ac133e1a59308b8737af5eec3
                 0 => __DIR__ . '/../..' . '/src/library',
             ),
             'entity' => 
-            array (
-                0 => __DIR__ . '/../..' . '/src/library',
-            ),
-        ),
-        'd' => 
-        array (
-            'domain' => 
             array (
                 0 => __DIR__ . '/../..' . '/src/library',
             ),

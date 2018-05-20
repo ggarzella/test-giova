@@ -1,6 +1,6 @@
 <?php
 
-namespace domain;
+namespace model;
 
 class Item
 {

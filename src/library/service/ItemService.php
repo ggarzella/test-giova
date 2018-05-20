@@ -2,7 +2,7 @@
 
 namespace service;
 
-use domain\Item;
+use model\Item;
 
 class ItemService
 {

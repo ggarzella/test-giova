@@ -9,10 +9,10 @@ return array(
     'utils' => array($baseDir . '/src/library'),
     'service' => array($baseDir . '/src/library'),
     'repository' => array($baseDir . '/src/library'),
+    'model' => array($baseDir . '/src/library'),
     'loader' => array($baseDir . '/src/library'),
     'factory' => array($baseDir . '/src/library'),
     'exception' => array($baseDir . '/src/library'),
     'entity' => array($baseDir . '/src/library'),
-    'domain' => array($baseDir . '/src/library'),
     'controller' => array($baseDir . '/src/library'),
 );

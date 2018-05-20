@@ -2,8 +2,8 @@
 
 namespace service;
 
-use domain\Stock;
-use domain\Store;
+use model\Stock;
+use model\Store;
 
 class StoreService
 {
@@ -69,8 +69,6 @@ class StoreService
 
         foreach ($this->data as $key=>$element)
             array_push($stores, $this->toStore($element));
-
-        // Se é vuota lancio un'eccezione
 
         return $stores;
     }
