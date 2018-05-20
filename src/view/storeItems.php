@@ -66,24 +66,21 @@
 
 </ul>
 
-
-<!--<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>-->
-
 <!-- Modal -->
 <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-body">
-                <div class="modal-body" style="text-align: center;">
+                <div class="modal-body">
                     <h1>Azione confermata</h1>
                     <p><label>Prodotto:</label>&nbsp;<span id="itemName"></span></p>
                     <p><label>Magazzino:</label>&nbsp;<span id="storeName"></span></p>
                     <p><label>Articoli inviati:</label>&nbsp;<span id="quantity"></span></p>
+                    <div class="text-center">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Chiudi</button>
+                    </div>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Chiudi</button>
             </div>
         </div>
     </div>

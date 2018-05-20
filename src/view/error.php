@@ -1,1 +1,3 @@
-<h1>OOOOOOOOPS something wrong</h1>
+<div class="text-center">
+    <h1>404 Page Not Found</h1>
+</div>
