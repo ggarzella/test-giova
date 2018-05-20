@@ -8,13 +8,13 @@ class TransferController
 {
     public function invoke()
     {
-        $idItem = $_REQUEST['idItem'];
         $idStore = $_REQUEST['idStore'];
+        $idItem = $_REQUEST['idItem'];
         $quantity = $_REQUEST['quantity'];
 
         try {
             if ($storeService = StoreFactory::getInstance()->getStoreService())
-                $store = $storeService->getStoreByItem($idItem, $idStore);
+                $store = $storeService->getItemFromStore($idStore, $idItem);
 
             include("src/view/transfer.php");
         } catch (\Exception $e) {

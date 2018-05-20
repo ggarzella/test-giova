@@ -9,17 +9,18 @@ window.addEventListener("DOMContentLoaded", function()
                 quantity = button.parentElement.querySelector('input[name="quantity"]').value,
                 minQuantity = button.parentElement.querySelector('input[name="minQuantity"]').value;
 
-            quantity = quantity - minQuantity;
-            quantity = 10;
+            quantity = minQuantity - quantity ;
 
-            var xhttp = new XMLHttpRequest();
-            xhttp.open("POST", "/transfer", true);
-            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            xhttp.send("idStore="+idStore+"&idItem="+idItem+"&quantity="+quantity);
-            xhttp.onreadystatechange = function () {
-                if (xhttp.readyState == 4 && xhttp.status == "200") {
-                    console.log(xhttp.responseText);
-                    console.log(xhttp.status);
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.open("POST", "/transfer", true);
+            xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            var params = "idStore="+idStore+"&idItem="+idItem+"&quantity="+quantity;
+            //var str_json = "json_string=" + ({idStore: idStore, idItem: idItem, quantity: quantity });
+            xmlhttp.send(params);
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == "200") {
+                    console.log(xmlhttp.responseText);
+                    console.log(xmlhttp.status);
                     //callback(req.responseText);
                 }
             };

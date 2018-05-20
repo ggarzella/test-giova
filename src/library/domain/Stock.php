@@ -12,7 +12,7 @@ class Stock
     /*
      * @var int
      */
-    private $idStore;
+    //private $idStore;
 
     /*
      * @var int
@@ -43,18 +43,18 @@ class Stock
     /**
      * @return int
      */
-    public function getIdStore()
+    /*public function getIdStore()
     {
         return $this->idStore;
-    }
+    }*/
 
     /**
      * @param int $idStore
      */
-    public function setIdStore($idStore)
+    /*public function setIdStore($idStore)
     {
         $this->idStore = $idStore;
-    }
+    }*/
 
     /**
      * @return int

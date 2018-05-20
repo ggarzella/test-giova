@@ -12,7 +12,7 @@ class StoreController
             $idItem = $_REQUEST['id'];
 
             if ($storeService = StoreFactory::getInstance()->getStoreService())
-                $stores = $storeService->getStoreList();
+                $stores = $storeService->getItemFromStoreList($idItem);
 
             include("src/view/storeItems.php");
         } catch (\Exception $e) {

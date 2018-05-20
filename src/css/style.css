@@ -50,7 +50,7 @@ input[type=button] {
     border-radius: 10px;
 }
 
-a, a:hover, a:visited, a:link, a:active {
+.itemDescription a, .itemDescription a:hover, .itemDescription a:visited, .itemDescription a:link, .itemDescription a:active {
     text-decoration: none;
     color: #212529;
 }

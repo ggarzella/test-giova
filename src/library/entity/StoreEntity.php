@@ -1,18 +1,13 @@
 <?php
 
-namespace domain;
+namespace entity;
 
-class Store
+class StoreEntity
 {
     /*
      * @var int
      */
     private $id;
-
-    /*
-     * @var array
-     */
-    private $stocks = array();
 
     /*
      * @var string
@@ -41,27 +36,6 @@ class Store
     }
 
     /**
-     * @return array
-     */
-    public function getStocks()
-    {
-        return $this->stocks;
-    }
-
-    /**
-     * @param Stock
-     */
-    public function setStocks($stock)
-    {
-        array_push($this->stocks, $stock);
-    }
-
-    public function unsetStocks($stock)
-    {
-        unset($this->stocks[$stock]);
-    }
-
-    /**
      * @return string
      */
     public function getName()
@@ -78,7 +52,7 @@ class Store
     }
 
     /**
-     * @return int
+     * @return string
      */
     public function getDistance()
     {
@@ -86,7 +60,7 @@ class Store
     }
 
     /**
-     * @param int $distance
+     * @param string $distance
      */
     public function setDistance($distance)
     {

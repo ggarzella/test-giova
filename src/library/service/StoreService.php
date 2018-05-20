@@ -54,19 +54,38 @@ class StoreService
         return $stores;
     }
 
-    public function getItemFromStore($idItem, $idStore)
+    public function getItemFromStore($idStore, $idItem)
     {
         $stores = $this->getStoreList();
 
         foreach ($stores as $key=>$store)
-            if ($store->getId() == $idStore)
-                foreach ($store->getStocks() as $stock)
-                    if ($stock->getIdItem() == $idItem) {
-                        $store->setStocks(array($stock));
-                        return $store;
-                    }
+            if ($store->getId() == $idStore) {
+                foreach ($store->getStocks() as $key=>$stock)
+                    if ($stock->getIdItem() != $idItem)
+                        $store->unsetStocks($key);
 
-        return false;
+                return $store;
+            }
+
+        return array();
+    }
+
+    public function getItemFromStoreList($idItem)
+    {
+        $stores = $this->getStoreList();
+
+        foreach ($stores as $x=>$store)
+            foreach ($store->getStocks() as $y=>$stock)
+            {
+
+                if ($stock->getIdItem() != $idItem)
+                    $store->unsetStocks($y);
+
+                if (empty($store->getStocks()))
+                    unset($stores[$x]);
+            }
+
+        return $stores;
     }
 
     private function toStore($data)
@@ -79,7 +98,7 @@ class StoreService
         foreach ($data["items"] as $item)
         {
             $stock = $this->toStock($item);
-            $stock->setIdStore($data["id"]);
+            //$stock->setIdStore($data["id"]);
             $store->setStocks($stock);
         }
 
@@ -94,40 +113,4 @@ class StoreService
         $stock->setMinQuantity($data["minQty"]);
         return $stock;
     }
-
-    /*private function filterStoreByIdItem($id)
-    {
-        $filteredStore = array();
-
-        foreach ($this->data as $store)
-        {
-            foreach ($store["items"] as $stock)
-                if ($stock["id"] == $id)
-                {
-                    $store["items"] = array($stock);
-                    array_push($filteredStore, $store);
-                    continue;
-                }
-        }
-
-        return $filteredStore;
-    }
-
-    private function filterByIdItemAndStore($idItem, $idStore)
-    {
-        $filteredStore = array();
-
-        foreach ($this->data as $store)
-        {
-            foreach ($store["items"] as $stock)
-                if ($stock["id"] == $id)
-                {
-                    $store["items"] = array($stock);
-                    array_push($filteredStore, $store);
-                    continue;
-                }
-        }
-
-        return $filteredStore;
-    }*/
 }

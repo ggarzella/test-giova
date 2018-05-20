@@ -9,7 +9,7 @@
 
     <?php
 
-    $bool = false;
+    $found = false;
 
     foreach ($stores as $store):
 
@@ -20,10 +20,10 @@
             $quantity = $stock->getQuantity();
             $minQuantity = $stock->getMinQuantity();
 
-            if (($stock->getIdItem() !== (int)$idItem) || (($quantity - $minQuantity) > 0))
+            if (($quantity - $minQuantity) > 0)
                 continue;
 
-            $bool = true;
+            $found = true;
 
             ?>
             <li>
@@ -51,7 +51,7 @@
 
     endforeach;
 
-    if ($bool === false):
+    if ($found === false):
 
     ?>
 
