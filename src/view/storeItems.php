@@ -1,3 +1,4 @@
+<script type="text/javascript" src="../src/js/httpCall.js"></script>
 <script type="text/javascript" src="../src/js/stores.js"></script>
 
 <h1>GestioneMagazzini</h1>

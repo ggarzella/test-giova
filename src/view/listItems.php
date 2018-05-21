@@ -1,3 +1,4 @@
+<script type="text/javascript" src="../src/js/filterItem.js"></script>
 <script type="text/javascript" src="../src/js/items.js"></script>
 
 <h1>GestioneMagazzini</h1>
