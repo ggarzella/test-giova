@@ -49,20 +49,6 @@ class StoreService
         return $this->itemService;
     }
 
-    public function getStoreByItem($id)
-    {
-        $stores = array();
-
-        $filteredStores = $this->filterStoreByIdItem($id);
-
-        foreach ($filteredStores as $store)
-            array_push($stores, $this->toStore($store));
-
-        // Se é vuoto lancio un'eccezione
-
-        return $stores;
-    }
-
     public function getStoreList()
     {
         $stores = array();
@@ -80,7 +66,6 @@ class StoreService
         foreach ($stores as $x=>$store)
             foreach ($store->getStocks() as $y=>$stock)
             {
-
                 if ($stock->getIdItem() != $idItem)
                     $store->unsetStocks($y);
 
@@ -105,6 +90,29 @@ class StoreService
             }
 
         return array();
+    }
+
+    public static function filterDataByIdItem($idItem, $data)
+    {
+        $filteredData = array();
+
+        foreach ($data as $key1=>$store)
+        {
+            foreach ($store["items"] as $key2 => $item)
+            {
+                if ($item["id"] == $idItem)
+                {
+                    $tmp = array();
+                    $tmp["id"] = $store["id"];
+                    $tmp["name"] = $store["name"];
+                    $tmp["distance"] =  $store["distance"];
+                    $tmp["items"][0] = $item;
+                    array_push($filteredData, $tmp);
+                }
+            }
+        }
+
+        return $filteredData;
     }
 
     private function toStore($data)

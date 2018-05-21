@@ -19,7 +19,7 @@ window.addEventListener("DOMContentLoaded", function()
         }
     }
 
-    var search = document.getElementById("itemsSearch");
+    var search = document.getElementById("items-search");
     search.addEventListener("keyup", filterItems);
 
 

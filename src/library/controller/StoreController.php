@@ -3,6 +3,7 @@
 namespace controller;
 
 use factory\StoreFactory;
+use utils\ListSorter;
 
 class StoreController
 {
@@ -14,9 +15,14 @@ class StoreController
             if ($storeService = StoreFactory::getInstance()->getStoreService())
             {
                 $data = $storeService->getDataSource();
-                uasort($data, array($this, 'sortByDistance'));
+                $data = $storeService::filterDataByIdItem($idItem, $data);
+                array_multisort(
+                    array_column($data, "distance"), SORT_ASC,
+                    array_column($data, "items", "qty"), SORT_ASC,
+                    $data
+                );
                 $storeService->setDataSource($data);
-                $stores = $storeService->getItemFromStoreList($idItem);
+                $stores = $storeService->getStoreList();
             }
 
             include("src/view/storeItems.php");
@@ -24,15 +30,5 @@ class StoreController
             $msg = $e->getMessage();
             var_dump($msg);
         }
-    }
-
-    private function sortByDistance($element1, $element2)
-    {
-        if ($element1["distance"] > $element2["distance"])
-            return 1;
-        else if ($element1["distance"] == $element2["distance"])
-            return 0;
-        else
-            return -1;
     }
 }

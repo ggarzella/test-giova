@@ -43,18 +43,23 @@ h1 {
     margin: 0;
 }
 
-#searchContainer  {
+#search-container  {
     margin: 15px 0 30px;
 }
 
 ul {
-    list-style-type: none;
     padding: 0;
 }
 
-ul li {
+.home ul li {
+    list-style-type: none;
     margin: 20px 0;
+}
+
+ul li {
     border: solid 1px rgba(108, 117, 125, 0.3);
+    margin: 20px 0;
+    list-style-type: none;
 }
 
 div.itemContent p {
@@ -79,9 +84,19 @@ input[type=button] {
     padding: 20px;
     width: 85%;
     border-radius: 10px;
+    cursor:pointer;
+}
+
+.home input[type=button] {
+    width: 30%;
 }
 
 .itemDescription a, .itemDescription a:hover, .itemDescription a:visited, .itemDescription a:link, .itemDescription a:active {
     text-decoration: none;
     color: #212529;
+}
+
+.note {
+    font-size: 15px;
+    font-style: italic;
 }

@@ -3,8 +3,8 @@
 <h1>GestioneMagazzini</h1>
 <h2>Gestione ristoccaggio magazzino</h2>
 
-<div id="searchContainer">
-    <input type="text" id="itemsSearch" class="form-control" placeholder="Di cosa hai bisogno oggi?" aria-label="Di cosa hai bisogno oggi?" aria-describedby="basic-addon1">
+<div id="search-container">
+    <input type="text" id="items-search" class="form-control" placeholder="Di cosa hai bisogno oggi?" aria-label="Di cosa hai bisogno oggi?" aria-describedby="basic-addon1">
 </div>
 
 <h3>Risultati</h3>

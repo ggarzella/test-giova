@@ -13,7 +13,10 @@ class ItemController
             if ($itemService = ItemFactory::getInstance()->getItemService())
             {
                 $data = $itemService->getDataSource();
-                uasort($data, array($this, 'sortByName'));
+                array_multisort(
+                    array_column($data, "name"), SORT_ASC,
+                    $data
+                );
                 $itemService->setDataSource($data);
                 $items = $itemService->getItemList($data);
             }
@@ -23,10 +26,5 @@ class ItemController
             $msg = $e->getMessage();
             var_dump($msg);
         }
-    }
-
-    public function sortByName($element1, $element2)
-    {
-        return strcasecmp($element1["name"], $element2["name"]);
     }
 }
