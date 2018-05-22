@@ -2,6 +2,7 @@
 
 namespace service;
 
+use exception\StoreServiceException;
 use model\Stock;
 use model\Store;
 
@@ -59,23 +60,6 @@ class StoreService
         return $stores;
     }
 
-    public function getItemFromStoreList($idItem)
-    {
-        $stores = $this->getStoreList();
-
-        foreach ($stores as $x=>$store)
-            foreach ($store->getStocks() as $y=>$stock)
-            {
-                if ($stock->getIdItem() != $idItem)
-                    $store->unsetStocks($y);
-
-                if (empty($store->getStocks()))
-                    unset($stores[$x]);
-            }
-
-        return $stores;
-    }
-
     public function getItemFromStore($idStore, $idItem)
     {
         $stores = $this->getStoreList();
@@ -111,6 +95,9 @@ class StoreService
                 }
             }
         }
+
+        if (empty($filteredData))
+            throw new StoreServiceException(utf8_encode("Nessun negozio é fornito di questo prodotto"));
 
         return $filteredData;
     }

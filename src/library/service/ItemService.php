@@ -2,6 +2,7 @@
 
 namespace service;
 
+use exception\ItemServiceException;
 use model\Item;
 
 class ItemService
@@ -37,6 +38,9 @@ class ItemService
         foreach ($this->data as $element)
             array_push($items, $this->toItem($element));
 
+        if (empty($items))
+            throw new ItemServiceException(utf8_encode("Non esiste alcun prodotto"));
+
         return $items;
     }
 
@@ -46,13 +50,11 @@ class ItemService
      */
     public function getItemById($id)
     {
-        $item = array();
-
         foreach ($this->data as $element)
             if ($element['id'] == $id)
                 return $this->toItem($element);
 
-        return $item;
+        throw new ItemServiceException(utf8_encode("Il prodotto richiesto non esiste"));
     }
 
     /*

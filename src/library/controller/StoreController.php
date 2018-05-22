@@ -2,6 +2,8 @@
 
 namespace controller;
 
+use exception\ItemServiceException;
+use exception\StoreServiceException;
 use factory\StoreFactory;
 use utils\ListSorter;
 
@@ -9,7 +11,8 @@ class StoreController implements IController
 {
     public function invoke()
     {
-        try {
+        try
+        {
             $idItem = $_REQUEST['id'];
 
             if ($storeService = StoreFactory::getInstance()->getStoreService())
@@ -24,11 +27,12 @@ class StoreController implements IController
                 $storeService->setDataSource($data);
                 $stores = $storeService->getStoreList();
             }
-
-            include("src/view/storeItems.php");
-        } catch (\Exception $e) {
-            $msg = $e->getMessage();
-            var_dump($msg);
         }
+        catch (StoreServiceException $e)
+        {
+            $errorMessage = $e->getMessage();
+        }
+
+        include("src/view/storeItems.php");
     }
 }

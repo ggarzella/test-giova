@@ -2,6 +2,7 @@
 
 namespace controller;
 
+use exception\ItemServiceException;
 use factory\ItemFactory;
 use utils\ListSorter;
 
@@ -9,7 +10,8 @@ class ItemController implements IController
 {
     public function invoke()
     {
-        try {
+        try
+        {
             if ($itemService = ItemFactory::getInstance()->getItemService())
             {
                 $data = $itemService->getDataSource();
@@ -20,11 +22,12 @@ class ItemController implements IController
                 $itemService->setDataSource($data);
                 $items = $itemService->getItemList($data);
             }
-
-            include("src/view/listItems.php");
-        } catch (\Exception $e) {
-            $msg = $e->getMessage();
-            var_dump($msg);
         }
+        catch (ItemServiceException $e)
+        {
+            $errorMessage = $e->getMessage();
+        }
+
+        include("src/view/listItems.php");
     }
 }
