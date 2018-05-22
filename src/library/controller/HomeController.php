@@ -2,7 +2,7 @@
 
 namespace controller;
 
-class HomeController
+class HomeController implements IController
 {
     public function invoke()
     {

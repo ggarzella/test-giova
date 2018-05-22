@@ -5,7 +5,7 @@ namespace controller;
 use factory\ItemFactory;
 use utils\ListSorter;
 
-class ItemController
+class ItemController implements IController
 {
     public function invoke()
     {

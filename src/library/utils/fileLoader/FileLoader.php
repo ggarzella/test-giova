@@ -15,6 +15,9 @@ class FileLoader
             case "json":
                 $loader = new JsonFileLoader();
                 break;
+            case "ini":
+                $loader = new IniFileLoader();
+                break;
             default:
                 throw new FileTypeException($filePath);
         }

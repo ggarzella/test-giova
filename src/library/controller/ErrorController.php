@@ -2,7 +2,7 @@
 
 namespace controller;
 
-class ErrorController
+class ErrorController implements IController
 {
     public function invoke()
     {

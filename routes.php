@@ -1,11 +1,10 @@
 <?php
 
+use utils\fileLoader\FileLoader;
 use controller\HomeController;
 use controller\ItemController;
 use controller\StoreController;
 use controller\ErrorController;
-use controller\TestModalController;
-use controller\TransferController;
 
 function call($controller)
 {
@@ -30,12 +29,22 @@ function call($controller)
     $controller->invoke();
 }
 
-if (!isset($controller))
-    $controller = 'home';
+$config = FileLoader::loadContent(__DIR__ . '/data/config.ini');
 
-$controllers = array('home', 'list', 'store');
+$controllers = explode(",", trim($config['controllerPages']));
+$pages = explode(",", trim($config['singlePages']));
 
-if (in_array($controller, $controllers))
-    call($controller);
+if (isset($_GET['page']))
+{
+    if (in_array($_GET['page'], $singlePages))
+    {
+        require_once($_GET['page'] . '.php');
+        return;
+    }
+    else if (in_array($_GET['page'], $controllers))
+        call($_GET['page']);
+    else
+        call('error');
+}
 else
-    call('error');
+    call('home');

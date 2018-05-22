@@ -9,6 +9,8 @@
         <ol>
             <li type=\"1\"><b>Pattern Strategy</b> per il caricamento dei file (ho appositamente inserito i controller registrati in un file di ini, anche se chiaramente ormai gli ini sono \"vecchi\" é ormai si mette tutto su file json).</li>
             <li type=\"2\"><b>Pattern Factory</b> per la creazione di instanze di classe e la risoluzione delle dipendenze.</li>
+
+           <li type=\"3\"><b>Pattern Singleton</b> per la creazione di un'unica istanza riutilizzabile più volte.</li>
         </ol>
     </p>
     <p>
